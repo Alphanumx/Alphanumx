@@ -1,0 +1,244 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Inscription & Accueil</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      user-select: none;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #0d0d0d;
+      color: #f0f0f0;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .form-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding: 2rem;
+    }
+
+    .form-box {
+      background-color: #1a1a1a;
+      padding: 3rem;
+      border-radius: 18px;
+      width: 95%;
+      max-width: 800px;
+      box-shadow: 0 0 20px rgba(58, 143, 211, 0.8);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      font-size: 2.2rem;
+      color: #3a8fd3;
+    }
+
+    .form-group {
+      position: relative;
+      margin-bottom: 2rem;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 1rem;
+      background: transparent;
+      border: 2px solid #444;
+      border-radius: 10px;
+      color: #eee;
+      font-size: 1.1rem;
+    }
+
+    input:focus {
+      border-color: #3a8fd3;
+      outline: none;
+    }
+
+    label {
+      position: absolute;
+      top: 50%;
+      left: 18px;
+      transform: translateY(-50%);
+      color: #aaa;
+      font-size: 1rem;
+      pointer-events: none;
+      transition: 0.3s ease;
+    }
+
+    input:focus + label,
+    input:not(:placeholder-shown) + label {
+      top: -14px;
+      left: 12px;
+      font-size: 0.8rem;
+      color: #3a8fd3;
+    }
+
+    .checkbox-container {
+      display: flex;
+      align-items: center;
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .checkbox-container input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      margin-right: 0.6rem;
+    }
+
+    .checkbox-container a {
+      color: #f0c674;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .checkbox-container a:hover {
+      color: #ffd97d;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: white;
+      background: linear-gradient(135deg, #3a8fd3, #6ab0ff);
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .btn:hover {
+      background: linear-gradient(135deg, #6ab0ff, #3a8fd3);
+      transform: scale(1.02);
+    }
+
+    #continue-guest {
+      background: linear-gradient(135deg, #ff7a7a, #ff4a4a);
+      box-shadow: 0 0 20px #ff4a4a;
+    }
+
+    #continue-guest:hover {
+      box-shadow: 0 0 30px #ff7a7a;
+    }
+
+    .accueil {
+      padding: 2rem;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    .neon-text {
+      color: #d946ef;
+      text-shadow: 0 0 5px #d946ef, 0 0 10px #d946ef, 0 0 20px #a21caf;
+    }
+
+    .section {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #d946ef;
+    }
+
+    .section p {
+      font-size: 1.1rem;
+      color: #c084fc;
+    }
+
+    .widget {
+      background: #222;
+      padding: 1.5rem;
+      margin: 1rem;
+      border-radius: 12px;
+      color: #c084fc;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <section id="page-inscription" class="form-container">
+    <div class="form-box">
+      <h2>Créer un compte</h2>
+
+      <div class="form-group">
+        <input type="text" id="username" placeholder=" " required />
+        <label for="username">Nom d'utilisateur</label>
+      </div>
+
+      <div class="form-group">
+        <input type="email" id="email" placeholder=" " required />
+        <label for="email">Adresse e-mail</label>
+      </div>
+
+      <div class="form-group">
+        <input type="password" id="password" placeholder=" " required />
+        <label for="password">Mot de passe</label>
+      </div>
+
+      <div class="checkbox-container">
+        <input type="checkbox" id="terms" required />
+        <label for="terms">J'accepte les <a href="#">conditions générales</a></label>
+      </div>
+
+      <button class="btn">S'inscrire</button>
+      <button class="btn" id="continue-guest">Continuer sans s'inscrire</button>
+    </div>
+  </section>
+
+  <section id="page-accueil" class="hidden accueil">
+    <h1 class="neon-text" style="text-align: center; font-size: 2.5rem;">Bienvenue sur D&N Resell</h1>
+
+    <div class="section">
+      <h2>À propos</h2>
+      <p>Nous vous proposons des produits high-tech de qualité avec un service rapide et personnalisé.</p>
+    </div>
+
+    <div class="section">
+      <div class="widget">👥 +1200 visiteurs ce mois-ci</div>
+      <div class="widget">⭐ “Excellent service, je recommande !”</div>
+      <div class="widget">👜 Produit phare : Portefeuille Goyard</div>
+    </div>
+
+    <div class="section">
+      <h2>Contact</h2>
+      <p>Écrivez-nous à <a href="mailto:contact@dnresell.com" style="color: #f0c674;">contact@dnresell.com</a></p>
+    </div>
+  </section>
+
+  <script>
+    const btnGuest = document.getElementById("continue-guest");
+    const pageInscription = document.getElementById("page-inscription");
+    const pageAccueil = document.getElementById("page-accueil");
+
+    btnGuest.addEventListener("click", () => {
+      pageInscription.classList.add("hidden");
+      pageAccueil.classList.remove("hidden");
+    });
+  </script>
+</body>
+</html>
